@@ -51,6 +51,7 @@ public class Card {
 	 */
 	public String suit() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
+		return null;
    }
 
 	/**
@@ -59,6 +60,7 @@ public class Card {
 	 */
 	public String rank() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
+		return null;
 	}
 
    /**
@@ -67,6 +69,7 @@ public class Card {
 	 */
 	public int pointValue() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
+		return -1;
 	}
 
 	/** Compare this card with the argument.
@@ -77,6 +80,7 @@ public class Card {
 	 */
 	public boolean matches(Card otherCard) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
+		return false;
 	}
 
 	/**
