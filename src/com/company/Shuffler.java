@@ -91,7 +91,7 @@ public class Shuffler {
 		Random rand = new Random();
 		int k = 0;
 		int[] shuffled = new int[values.length];
-		while (isEmpty(values))
+		while (!isEmpty(values))
 		{
 			int indx = rand.nextInt(values.length);
 			if (values[indx] != -1)
@@ -101,8 +101,6 @@ public class Shuffler {
 				k++;
 			}
 		}
-		System.out.println(values.length);
-		System.out.println(shuffled.length);
 		for (int i = 0; i < shuffled.length; i++)
 		{
 			values[i] = shuffled[i];
