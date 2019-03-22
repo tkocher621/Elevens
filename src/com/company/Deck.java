@@ -1,7 +1,8 @@
 package com.company;
+import java.util.*;
+
 import java.util.List;
 import java.util.ArrayList;
-
 /**
  * The Deck class represents a shuffled deck of cards.
  * It provides several operations including
@@ -12,7 +13,7 @@ public class Deck {
 	/**
 	 * cards contains all the cards in the deck.
 	 */
-	private List<Card> cards = new ArrayList<>();
+	private List<Card> cards;
 
 	/**
 	 * size is the number of not-yet-dealt cards.
@@ -31,11 +32,10 @@ public class Deck {
 	 * @param values is an array containing all of the card point values.
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
-		for (int i = 0; i < suits.length; i++)
-		{
-			for (int a = 0; a < ranks.length; a++)
-			{
-				cards.add(new Card(ranks[a], suits[i], values[a]));
+		cards = new ArrayList<>();
+		for (int j = 0; j < ranks.length; j++) {
+			for (String suitString : suits) {
+				cards.add(new Card(ranks[j], suitString, values[j]));
 			}
 		}
 		size = cards.size();
@@ -48,7 +48,7 @@ public class Deck {
 	 * @return true if this deck is empty, false otherwise.
 	 */
 	public boolean isEmpty() {
-		return cards.size() == 0;
+		return size == 0;
 	}
 
 	/**
@@ -64,7 +64,16 @@ public class Deck {
 	 * and reset the size to represent the entire deck.
 	 */
 	public void shuffle() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		Random rand = new Random();
+		List<Card> shuffled = new ArrayList<>();
+		for (int i = 0; i < cards.size(); i++)
+		{
+			Card card = cards.get(rand.nextInt(cards.size()));
+			shuffled.add(card);
+			cards.remove(card);
+		}
+		cards = shuffled;
+		size = cards.size();
 	}
 
 	/**
@@ -73,8 +82,12 @@ public class Deck {
 	 *         previously dealt.
 	 */
 	public Card deal() {
+		if (isEmpty()) {
+			return null;
+		}
 		size--;
-		return cards.get(size);
+		Card c = cards.get(size);
+		return c;
 	}
 
 	/**
