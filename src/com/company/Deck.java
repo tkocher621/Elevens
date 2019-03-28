@@ -1,8 +1,7 @@
 package com.company;
-import java.util.*;
-
 import java.util.List;
 import java.util.ArrayList;
+
 /**
  * The Deck class represents a shuffled deck of cards.
  * It provides several operations including
@@ -32,7 +31,7 @@ public class Deck {
 	 * @param values is an array containing all of the card point values.
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
-		cards = new ArrayList<>();
+		cards = new ArrayList<Card>();
 		for (int j = 0; j < ranks.length; j++) {
 			for (String suitString : suits) {
 				cards.add(new Card(ranks[j], suitString, values[j]));
@@ -64,15 +63,14 @@ public class Deck {
 	 * and reset the size to represent the entire deck.
 	 */
 	public void shuffle() {
-		Random rand = new Random();
-		List<Card> shuffled = new ArrayList<>();
-		for (int i = 0; i < cards.size(); i++)
-		{
-			Card card = cards.get(rand.nextInt(cards.size()));
-			shuffled.add(card);
-			cards.remove(card);
+		for (int k = cards.size() - 1; k > 0; k--) {
+			int howMany = k + 1;
+			int start = 0;
+			int randPos = (int) (Math.random() * howMany) + start;
+			Card temp = cards.get(k);
+			cards.set(k, cards.get(randPos));
+			cards.set(randPos, temp);
 		}
-		cards = shuffled;
 		size = cards.size();
 	}
 
