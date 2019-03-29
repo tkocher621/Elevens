@@ -22,7 +22,7 @@ public class Card {
 	private int pointValue;
 
 
-	/**
+   /**
 	 * Creates a new <code>Card</code> instance.
 	 *
 	 * @param cardRank  a <code>String</code> value
@@ -56,7 +56,7 @@ public class Card {
 		return rank;
 	}
 
-	/**
+   /**
 	 * Accesses this <code>Card's</code> point value.
 	 * @return this <code>Card's</code> point value.
 	 */
@@ -72,8 +72,8 @@ public class Card {
 	 */
 	public boolean matches(Card otherCard) {
 		return otherCard.suit().equals(this.suit())
-				&& otherCard.rank().equals(this.rank())
-				&& otherCard.pointValue() == this.pointValue();
+			&& otherCard.rank().equals(this.rank())
+			&& otherCard.pointValue() == this.pointValue();
 	}
 
 	/**
